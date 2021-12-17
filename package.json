@@ -1,32 +1,49 @@
 {
-  "name": "auth-server",
-  "version": "1.0.0",
-  "description": "An authentication server designed to work with the Krytis ecosystem.",
+  "name": "%%YOURPROJECT%%",
+  "version": "0.1.0",
+  "description": "%%YOURPROJECT%%",
   "scripts": {
     "lint": "eslint . --ext .ts",
-    "test": "npm run lint && jest"
+    "test": "npm run lint && npm run build && jest",
+    "build": "tsc",
+    "start": "npm run build && node dist/index.js"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/krytis/auth-server.git"
+    "url": "github:%%YOURGITHUB%%"
   },
-  "author": "Annika L. <annika0uwu@gmail.com>",
+  "author": "%%YOURNAME%% <%%YOURNAME%%@domain.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/krytis/auth-server/issues"
+    "url": "https://github.com/%%YOURGITHUB%%/issues"
   },
-  "homepage": "https://github.com/krytis/auth-server#readme",
+  "homepage": "https://github.com/%%YOURGITHUB%%#readme",
   "dependencies": {
     "typescript": "^4.4.2"
   },
   "devDependencies": {
-    "@pkmn/eslint-config": "^1.4.0",
-    "@types/jest": "^27.0.1",
-    "@typescript-eslint/eslint-plugin": "^4.31.0",
-    "@typescript-eslint/parser": "^4.31.0",
+    "@krytis/eslint-config": "^0.2.1",
+    "@pkmn/eslint-config": "^2.1.0",
+    "@types/jest": "^27.0.3",
+    "@typescript-eslint/eslint-plugin": "^5.5.0",
+    "@typescript-eslint/parser": "^5.5.0",
     "codecov": "^3.8.3",
-    "eslint": "^7.32.0",
-    "jest": "^27.1.0",
-    "ts-jest": "^27.0.5"
+    "eslint": "^8.4.0",
+    "eslint-plugin-jest": "^25.3.0",
+    "jest": "^27.4.3",
+    "ts-jest": "^27.0.7"
+  },
+  "eslintConfig": {
+    "extends": "@krytis"
+  },
+  "jest": {
+    "collectCoverage": true,
+    "coverageDirectory": "coverage",
+    "coverageProvider": "v8",
+    "testEnvironment": "node",
+    "testMatch": ["**/tests/*.ts"],
+    "transform": {
+        "^.+\\.(ts|tsx)$": "ts-jest"
+    }
   }
 }
